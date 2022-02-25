@@ -1,7 +1,12 @@
 /* Kay Catering Sitewide CSS */
 
+/* Set max font size (TRicks Wizardry Method) */
 
-
+@media only screen and (min-width: 1440px) {
+    body {
+        font-size: 14.4px;
+    }
+}
 
 /* Pointer Events */
 
@@ -15,11 +20,14 @@ a {
     color: inherit;
 }
 
+/* Splide styles */
 
-/* Set max font size (TRicks Wizardry Method) */
-
-@media only screen and (min-width: 1440px) {
-    body {
-        font-size: 14.4px;
+.splide__arrow.splide__arrow--next,
+    .splide__arrow.splide__arrow--prev,
+    .splide__pagination {
+        display: none;
     }
-}
+
+    .splide *:focus {
+        outline: none;
+    }
