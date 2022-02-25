@@ -1,0 +1,25 @@
+/* Kay Catering Sitewide CSS */
+
+
+
+
+/* Pointer Events */
+
+.sec__ovrlay {
+    pointer-events: none;
+}
+
+/* Link Color Inherit */
+
+a {
+    color: inherit;
+}
+
+
+/* Set max font size (TRicks Wizardry Method) */
+
+@media only screen and (min-width: 1440px) {
+    body {
+        font-size: 14.4px;
+    }
+}
