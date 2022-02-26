@@ -122,7 +122,7 @@ function section1TLPrep() {
     scrollTrigger: {
       trigger: topicScroll,
       start: "50% bottom",
-      end: "bottom top",
+      end: "50% top",
       scrub: true,
       markers: true
     }
