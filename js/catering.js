@@ -84,7 +84,7 @@ function introTLPrep() {
       start: "top top",
       end: "50% top",
       scrub: true,
-      markers: false
+      markers: true
     }
   });
 
@@ -124,7 +124,7 @@ function section1TLPrep() {
       start: "50% bottom",
       end: "50% top",
       scrub: true,
-      markers: true
+      markers: false
     }
   });
 
