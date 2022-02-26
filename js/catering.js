@@ -143,13 +143,4 @@ function section1TLPrep() {
     "<"
   );
 
-  section1TL.to(
-    topicDesc,
-    {
-      yPercent: 50,
-      ease: "none"
-    },
-    "<"
-  );
-
 }
