@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 11;
+var version = 12;
 
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
 
@@ -19,8 +19,8 @@ var introRightMove = "";  // Amount to move right intro panel on scroll
 
 var topicScroll = "#topic__scroll-js"; // Scrolling frame for intro and first topic
 var firstTopic = "#topic__scroll-js .topic__first-js"; // Container with first topic elements
-var firstSecondImg = "#first__second-img-js"; // First secondary topic images
-var firstTopicDesc = "#first__desc-js";  // First topic text
+var firstSecondImg = "#topic__scroll-js .topic__second-img-js"; // First secondary topic images
+var firstTopicDesc = "#topic__scroll-js .topic__desc-js";  // First topic text
 
 
 var topic = ".topic-js"; // Subsequent topics (not the first on the page)
