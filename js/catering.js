@@ -58,7 +58,8 @@ $(document).ready(function () {
     ---------- Function definitions ----------
 */
 
-function gsapTLs() {
+function gsapPrep (){
+
   //Breakpoints
 
   if (window.matchMedia("(min-width: 992px)").matches) {
@@ -70,6 +71,11 @@ function gsapTLs() {
     introLeftMove = "-100vw";
     introRightMove = "100vw";
   }
+
+}
+
+function gsapTLs() {
+  
 
   // Introduction Timeline - Barn Door Open
 
