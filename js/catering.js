@@ -22,7 +22,6 @@ var firstTopicDesc = "#first__desc-js";  // First topic text
 
 
 var topic = ".topic-js"; // Subsequent topics (not the first on the page)
-
 var secondImg = ".topic__second-img-js"; // Secondary topic images
 var topicDesc = ".topic__desc-js";  // Topic text
 
@@ -144,8 +143,7 @@ function section1TLPrep() {
     {
       yPercent: -175,
       ease: "none"
-    },
-    "<"
+    }
   );
 
   section1TL.fromTo(
@@ -160,5 +158,35 @@ function section1TLPrep() {
     },
     "<"
   );
+
+}
+
+function subsequentSectionsTLPrep() {
+
+  // Subsequent Topics - Image Parallax
+
+  var subsequentSectionsTL = gsap.timeline({
+    id: "Subsq Sectns",
+    scrollTrigger: {
+      trigger: topic,
+      start: "50% bottom",
+      end: "bottom top",
+      scrub: true,
+      markers: true
+    }
+  });
+
+  subsequentSectionsTL.fromTo(
+    secondImg,
+    {
+      yPercent: 75,
+      ease: "none"
+    },
+    {
+      yPercent: -175,
+      ease: "none"
+    }
+  );
+
 
 }
