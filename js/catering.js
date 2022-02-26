@@ -136,7 +136,7 @@ function section1TLPrep() {
   section1TL.to(
     secondImg,
     {
-      yPercent: 12,
+      yPercent: 35,
       ease: "none"
     },
     "<"
