@@ -122,7 +122,7 @@ function section1TLPrep() {
     scrollTrigger: {
       trigger: topicScroll,
       start: "top top",
-      end: "bottom bottom",
+      end: "bottom top",
       scrub: true,
       markers: true
     }
@@ -136,7 +136,7 @@ function section1TLPrep() {
   section1TL.from(
     secondImg,
     {
-      yPercent: 90,
+      yPercent: -50,
       ease: "none"
     },
     "<"
