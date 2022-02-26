@@ -136,19 +136,19 @@ function section1TLPrep() {
   section1TL.to(
     secondImg,
     {
-      yPercent: 35,
+      yPercent: 90,
       ease: "none"
     },
     "<"
   );
 
-/*   section1TL.to(
+  section1TL.to(
     topicDesc,
     {
-      yPercent: 50,
+      yPercent: -90,
       ease: "none"
     },
     "<"
   );
- */
+
 }
