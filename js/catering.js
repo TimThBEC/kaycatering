@@ -84,7 +84,7 @@ function introTLPrep() {
       start: "top top",
       end: "50% top",
       scrub: true,
-      markers: true
+      markers: false
     }
   });
 
@@ -121,10 +121,10 @@ function section1TLPrep() {
     id: "Sectn 1",
     scrollTrigger: {
       trigger: topicScroll,
-      start: "50% bottom",
-      end: "50% top",
+      start: "top top",
+      end: "bottom top",
       scrub: true,
-      markers: false
+      markers: true
     }
   });
 
