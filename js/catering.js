@@ -11,6 +11,8 @@ var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
 var gsapDevToolsContainer = "#gsap-dev-tools-js"; // Container for GSAP Dev Tools
 var introLeft = ".intro__left-panel-js";
 var introRight = ".intro__right-panel-js";
+var introLeftMove = "";
+var introRightMove = "";
 var topicScroll = ".topic__scroll-js";
 var mainImg = ".topic__main-img-js";
 var secondImg = ".topic__second-img-js";
@@ -43,8 +45,8 @@ function gsapPrep (){
 
     // Set movement amount for barn doors in intro
 
-    var introLeftMove = "-50vw";
-    var introRightMove = "50vw";
+    introLeftMove = "-50vw";
+    introRightMove = "50vw";
 
     // Add parallax to first topic section
 
