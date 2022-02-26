@@ -31,11 +31,10 @@ var topicDesc = ".topic__desc-js";  // Topic text
 
 $(document).ready(function () {
 
-  console.log("catering.js loaded and ready - 10");
+  console.log("catering.js loaded and ready - 11");
 
   gsapPrep();
   gsapDevTools();
-  introTLPrep();
 
 }); // End doc ready
 
@@ -58,6 +57,7 @@ function gsapPrep() {
     // Add parallax to first topic section
 
     section1TLPrep();
+    subsequentSectionsTLPrep();
 
 
   } else {
@@ -65,6 +65,11 @@ function gsapPrep() {
     introLeftMove = "-100vw";
     introRightMove = "100vw";
   }
+
+
+  // Timelines that don't depend on breakpoints
+
+  introTLPrep();
 
 }
 
