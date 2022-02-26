@@ -106,10 +106,11 @@ function introTLPrep() {
     firstTopic,
     {
       opacity: 0,
+      yPercent: 35,
       ease: "none"
     },
     "<"
-  )
+  );
 
 }
 
