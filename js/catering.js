@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 13;
+var version = 14;
 
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
 
@@ -17,10 +17,10 @@ var introRight = ".intro__right-panel-js"; // Right intro panel
 var introLeftMove = "";  // Amount to move left intro panel on scroll
 var introRightMove = "";  // Amount to move right intro panel on scroll
 
-var topic1 = "#topic__scroll-js"; // Scrolling frame for intro and first topic
-var topic1Container = "#topic__scroll-js .topic__first-js"; // Container with first topic elements
-var topicSecondImg1 = "#topic__scroll-js .topic__second-img-js"; // First secondary topic images
-var topicText1 = "#topic__scroll-js .topic__desc-js";  // First topic text
+var topic1 = "#topic1-js"; // Scrolling frame
+var topic1Container = "#topic1-js .topic__cntr-first-js"; // Container with topic elements
+var topic1SecondImg = "#topic1-js .topic__second-img-js"; // Secondary topic image
+var topic1Text = "#topic1-js .topic__desc-js";  // Topic text
 
 
 var topic = ".topic-js"; // Subsequent topics (not the first on the page)
@@ -142,7 +142,7 @@ function section1TLPrep() {
   });
 
   section1TL.fromTo(
-    topicSecondImg1,
+    topic1SecondImg,
     {
       yPercent: 75,
       ease: "none"
@@ -154,7 +154,7 @@ function section1TLPrep() {
   );
 
   section1TL.fromTo(
-    topicText1,
+    topic1Text,
     {
       yPercent: 175,
       ease: "none"
