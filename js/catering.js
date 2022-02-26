@@ -16,7 +16,7 @@ var introLeftMove = "";  // Amount to move left intro panel on scroll
 var introRightMove = "";  // Amount to move right intro panel on scroll
 
 var topicScroll = "#topic__scroll-js"; // Scrolling frame for intro and first topic
-var firstTopic = "#topic__first-js"; // Container with first topic elements
+var firstTopic = "#topic__scroll-js topic__first-js"; // Container with first topic elements
 var firstSecondImg = "#first__second-img-js"; // First secondary topic images
 var firstTopicDesc = "#first__desc-js";  // First topic text
 
