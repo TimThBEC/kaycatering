@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 12;
+var version = 13;
 
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
 
@@ -17,10 +17,10 @@ var introRight = ".intro__right-panel-js"; // Right intro panel
 var introLeftMove = "";  // Amount to move left intro panel on scroll
 var introRightMove = "";  // Amount to move right intro panel on scroll
 
-var topicScroll = "#topic__scroll-js"; // Scrolling frame for intro and first topic
-var firstTopic = "#topic__scroll-js .topic__first-js"; // Container with first topic elements
-var firstSecondImg = "#topic__scroll-js .topic__second-img-js"; // First secondary topic images
-var firstTopicDesc = "#topic__scroll-js .topic__desc-js";  // First topic text
+var topic1 = "#topic__scroll-js"; // Scrolling frame for intro and first topic
+var topic1Container = "#topic__scroll-js .topic__first-js"; // Container with first topic elements
+var topicSecondImg1 = "#topic__scroll-js .topic__second-img-js"; // First secondary topic images
+var topicText1 = "#topic__scroll-js .topic__desc-js";  // First topic text
 
 
 var topic = ".topic-js"; // Subsequent topics (not the first on the page)
@@ -93,7 +93,7 @@ function introTLPrep() {
   var introTL = gsap.timeline({
     id: "intro",
     scrollTrigger: {
-      trigger: topicScroll,
+      trigger: topic1,
       start: "top top",
       end: "50% top",
       scrub: true,
@@ -116,7 +116,7 @@ function introTLPrep() {
   );
 
   introTL.from(
-    firstTopic,
+    topic1Container,
     {
       opacity: 0,
       ease: "none"
@@ -133,7 +133,7 @@ function section1TLPrep() {
   var section1TL = gsap.timeline({
     id: "Sectn 1",
     scrollTrigger: {
-      trigger: topicScroll,
+      trigger: topic1,
       start: "50% bottom",
       end: "bottom top",
       scrub: true,
@@ -142,7 +142,7 @@ function section1TLPrep() {
   });
 
   section1TL.fromTo(
-    firstSecondImg,
+    topicSecondImg1,
     {
       yPercent: 75,
       ease: "none"
@@ -154,7 +154,7 @@ function section1TLPrep() {
   );
 
   section1TL.fromTo(
-    firstTopicDesc,
+    topicText1,
     {
       yPercent: 175,
       ease: "none"
