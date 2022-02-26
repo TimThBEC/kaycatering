@@ -131,11 +131,11 @@ function section1TLPrep() {
   section1TL.fromTo(
     secondImg,
     {
-      yPercent: 50,
+      yPercent: 75,
       ease: "none"
     },
     {
-      yPercent: -150,
+      yPercent: -175,
       ease: "none"
     },
     "<"
@@ -144,11 +144,11 @@ function section1TLPrep() {
   section1TL.fromTo(
     topicDesc,
     {
-      yPercent: 125,
+      yPercent: 175,
       ease: "none"
     },
     {
-      yPercent: 25,
+      yPercent: -25,
       ease: "none"
     },
     "<"
