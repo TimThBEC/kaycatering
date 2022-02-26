@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 14;
+var version = 16;
 
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
 
@@ -22,10 +22,11 @@ var topic1Container = "#topic1-js .topic__cntr-first-js"; // Container with topi
 var topic1SecondImg = "#topic1-js .topic__second-img-js"; // Secondary topic image
 var topic1Text = "#topic1-js .topic__desc-js";  // Topic text
 
+var topic2 = "#topic2-js"; // Scrolling frame
+var topic2Container = "#topic2-js .topic__cntr-first-js"; // Container with topic elements
+var topic2SecondImg = "#topic2-js .topic__second-img-js"; // Secondary topic image
+var topic2Text = "#topic2-js .topic__desc-js";  // Topic text
 
-var topic = ".topic-js"; // Subsequent topics (not the first on the page)
-var secondImg = ".topic__second-img-js"; // Secondary topic images
-var topicDesc = ".topic__desc-js";  // Topic text
 
 /* 
     ---------- Doc Ready ----------
@@ -33,7 +34,7 @@ var topicDesc = ".topic__desc-js";  // Topic text
 
 $(document).ready(function () {
 
-  console.log("catering.js loaded and ready: v"+version);
+  console.log("catering.js v"+version);
 
   gsapPrep();
   gsapDevTools();
@@ -58,9 +59,7 @@ function gsapPrep() {
 
     // Add parallax to first topic section
 
-    section1TLPrep();
-    subsequentSectionsTLPrep();
-
+    topicTLPrep();
 
   } else {
     console.log("Mobile");
@@ -126,12 +125,12 @@ function introTLPrep() {
 
 }
 
-function section1TLPrep() {
+function topicTLPrep() {
 
-  // First Topic - Image Parallax
+  // Topic 1 - Image Parallax
 
-  var section1TL = gsap.timeline({
-    id: "Sectn 1",
+  var topic1TL = gsap.timeline({
+    id: "Topic1",
     scrollTrigger: {
       trigger: topic1,
       start: "50% bottom",
@@ -141,7 +140,7 @@ function section1TLPrep() {
     }
   });
 
-  section1TL.fromTo(
+  topic1TL.fromTo(
     topic1SecondImg,
     {
       yPercent: 75,
@@ -153,8 +152,46 @@ function section1TLPrep() {
     }
   );
 
-  section1TL.fromTo(
+  topic1TL.fromTo(
     topic1Text,
+    {
+      yPercent: 175,
+      ease: "none"
+    },
+    {
+      yPercent: -25,
+      ease: "none"
+    },
+    "<"
+  );
+
+  // Topic 2 - Image Parallax
+
+  var topic2TL = gsap.timeline({
+    id: "Topic2",
+    scrollTrigger: {
+      trigger: topic2,
+      start: "50% bottom",
+      end: "bottom top",
+      scrub: true,
+      markers: true
+    }
+  });
+
+  topic2TL.fromTo(
+    topic2SecondImg,
+    {
+      yPercent: 75,
+      ease: "none"
+    },
+    {
+      yPercent: -175,
+      ease: "none"
+    }
+  );
+
+  topic2TL.fromTo(
+    topic2Text,
     {
       yPercent: 175,
       ease: "none"
@@ -168,32 +205,3 @@ function section1TLPrep() {
 
 }
 
-function subsequentSectionsTLPrep() {
-
-  // Subsequent Topics - Image Parallax
-
-  var subsequentSectionsTL = gsap.timeline({
-    id: "Subsq Sectns",
-    scrollTrigger: {
-      trigger: topic,
-      start: "50% bottom",
-      end: "bottom top",
-      scrub: true,
-      markers: true
-    }
-  });
-
-  subsequentSectionsTL.fromTo(
-    secondImg,
-    {
-      yPercent: 75,
-      ease: "none"
-    },
-    {
-      yPercent: -175,
-      ease: "none"
-    }
-  );
-
-
-}
