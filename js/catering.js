@@ -16,42 +16,18 @@ var mainImg = ".topic__main-img-js";
 var secondImg = ".topic__second-img-js";
 var topicDesc = ".topic__desc-js";
 
-var introTL = gsap.timeline({
-  id: "intro",
-  scrollTrigger: {
-    trigger: topicScroll,
-    start: "top top",
-    end: "50% top",
-    scrub: true,
-    markers: false
-  }
-}); // Page intro timeline
-
-var firstSection = gsap.timeline({
-  id: "Sectn 1",
-  scrollTrigger: {
-    trigger: topicScroll,
-    start: "bottom bottom",
-    end: "bottom top",
-    scrub: true,
-    markers: true
-  }
-}); // First Section Parallax timeline
-
 /* 
     ---------- Doc Ready ----------
 */
 
 $(document).ready(function () {
+
   console.log("catering.js loaded and ready");
-  gsapTLs();
 
-  // GSAP Dev Tools
-
-  if (devToolsOn) {
-    gsap.set(gsapDevToolsContainer, { display: "block" });
-    GSDevTools.create({ container: gsapDevToolsContainer });
-  }
+  gsapPrep();
+  gsapDevTools();
+  introTLPrep();
+  
 }); // End doc ready
 
 /* 
@@ -64,8 +40,17 @@ function gsapPrep (){
 
   if (window.matchMedia("(min-width: 992px)").matches) {
     console.log("Desktop");
+
+    // Set movement amount for barn doors in intro
+
     var introLeftMove = "-50vw";
     var introRightMove = "50vw";
+
+    // Add parallax to first topic section
+
+    section1TLPrep();
+
+
   } else {
     console.log("Mobile");
     introLeftMove = "-100vw";
@@ -74,10 +59,31 @@ function gsapPrep (){
 
 }
 
-function gsapTLs() {
-  
+function gsapDevTools (){
 
+// Set up GSAP dev tools
+
+if (devToolsOn) {
+  gsap.set(gsapDevToolsContainer, { display: "block" });
+  GSDevTools.create({ container: gsapDevToolsContainer });
+}
+
+}
+
+function introTLPrep() {
+  
   // Introduction Timeline - Barn Door Open
+
+  var introTL = gsap.timeline({
+    id: "intro",
+    scrollTrigger: {
+      trigger: topicScroll,
+      start: "top top",
+      end: "50% top",
+      scrub: true,
+      markers: false
+    }
+  });
 
   introTL.to(introLeft, {
     x: introLeftMove,
@@ -92,29 +98,45 @@ function gsapTLs() {
     },
     "<"
   );
+  
+}
 
-  // First Topic - Image Parallax
+function section1TLPrep (){
 
-  firstSection.to(mainImg, {
-    yPercent: -25,
+// First Topic - Image Parallax
+
+var section1TL = gsap.timeline({
+  id: "Sectn 1",
+  scrollTrigger: {
+    trigger: topicScroll,
+    start: "bottom bottom",
+    end: "bottom top",
+    scrub: true,
+    markers: true
+  }
+});
+
+section1TL.to(mainImg, {
+  yPercent: -25,
+  ease: "none"
+});
+
+section1TL.to(
+  secondImg,
+  {
+    yPercent: 12,
     ease: "none"
-  });
+  },
+  "<"
+);
 
-  firstSection.to(
-    secondImg,
-    {
-      yPercent: 12,
-      ease: "none"
-    },
-    "<"
-  );
+section1TL.to(
+  topicDesc,
+  {
+    yPercent: 50,
+    ease: "none"
+  },
+  "<"
+);
 
-  firstSection.to(
-    topicDesc,
-    {
-      yPercent: 50,
-      ease: "none"
-    },
-    "<"
-  );
 }
