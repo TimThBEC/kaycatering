@@ -142,7 +142,7 @@ function section1TLPrep() {
     "<"
   );
 
-  section1TL.to(
+/*   section1TL.to(
     topicDesc,
     {
       yPercent: 50,
@@ -150,5 +150,5 @@ function section1TLPrep() {
     },
     "<"
   );
-
+ */
 }
