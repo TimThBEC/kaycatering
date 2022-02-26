@@ -25,7 +25,7 @@ var topicDesc = ".topic__desc-js";  // Topic text
 
 $(document).ready(function () {
 
-  console.log("catering.js loaded and ready - 1");
+  console.log("catering.js loaded and ready - 2");
 
   gsapPrep();
   gsapDevTools();
