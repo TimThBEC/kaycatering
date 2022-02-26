@@ -128,8 +128,12 @@ function section1TLPrep() {
     }
   });
 
-  section1TL.from(
+  section1TL.fromTo(
     secondImg,
+    {
+      yPercent: -50,
+      ease: "none"
+    },
     {
       yPercent: 50,
       ease: "none"
