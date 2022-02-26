@@ -135,7 +135,7 @@ function section1TLPrep() {
       ease: "none"
     },
     {
-      yPercent: 100,
+      yPercent: -100,
       ease: "none"
     },
     "<"
