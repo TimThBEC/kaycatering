@@ -17,10 +17,12 @@ var introRightMove = "";  // Amount to move right intro panel on scroll
 
 var topicScroll = "#topic__scroll-js"; // Scrolling frame for intro and first topic
 var firstTopic = "#topic__first-js"; // Container with first topic elements
+var firstSecondImg = "#first__second-img-js"; // First secondary topic images
+var firstTopicDesc = "#first__desc-js";  // First topic text
+
 
 var topic = ".topic-js"; // Subsequent topics (not the first on the page)
 
-var mainImg = ".topic__main-img-js";  // Main topic images
 var secondImg = ".topic__second-img-js"; // Secondary topic images
 var topicDesc = ".topic__desc-js";  // Topic text
 
@@ -134,7 +136,7 @@ function section1TLPrep() {
   });
 
   section1TL.fromTo(
-    secondImg,
+    firstSecondImg,
     {
       yPercent: 75,
       ease: "none"
@@ -147,7 +149,7 @@ function section1TLPrep() {
   );
 
   section1TL.fromTo(
-    topicDesc,
+    firstTopicDesc,
     {
       yPercent: 175,
       ease: "none"
