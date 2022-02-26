@@ -121,7 +121,7 @@ function section1TLPrep() {
     id: "Sectn 1",
     scrollTrigger: {
       trigger: topicScroll,
-      start: "50% Bottom",
+      start: "50% bottom",
       end: "bottom top",
       scrub: true,
       markers: true
