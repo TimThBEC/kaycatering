@@ -121,18 +121,13 @@ function section1TLPrep() {
     id: "Sectn 1",
     scrollTrigger: {
       trigger: topicScroll,
-      start: "top top",
+      start: "50% Bottom",
       end: "bottom top",
       scrub: true,
       markers: true
     }
   });
 
-/*   section1TL.to(mainImg, {
-    yPercent: -25,
-    ease: "none"
-  });
- */
   section1TL.from(
     secondImg,
     {
