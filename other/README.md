@@ -1,2 +1,2 @@
 # kaycatering
-Kay Catering
+CDN files for Kay Catering
