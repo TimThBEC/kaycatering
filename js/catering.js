@@ -25,7 +25,7 @@ var topicDesc = ".topic__desc-js";  // Topic text
 
 $(document).ready(function () {
 
-  console.log("catering.js loaded and ready - 5");
+  console.log("catering.js loaded and ready - 6");
 
   gsapPrep();
   gsapDevTools();
@@ -131,11 +131,11 @@ function section1TLPrep() {
   section1TL.fromTo(
     secondImg,
     {
-      y: "-5em",
+      y: "-10em",
       ease: "none"
     },
     {
-      y: "5em",
+      y: "0em",
       ease: "none"
     },
     "<"
