@@ -24,7 +24,7 @@ var topicDesc = ".topic__desc-js";
 
 $(document).ready(function () {
 
-  console.log("catering.js loaded and ready");
+  console.log("catering.js loaded and ready - 1");
 
   gsapPrep();
   gsapDevTools();
@@ -47,9 +47,6 @@ function gsapPrep (){
 
     introLeftMove = "-50vw";
     introRightMove = "50vw";
-
-    console.log("ILM from gsapPrep = " + introLeftMove);
-
 
     // Add parallax to first topic section
 
@@ -78,8 +75,6 @@ if (devToolsOn) {
 function introTLPrep() {
   
   // Introduction Timeline - Barn Door Open
-
-console.log("ILM from introTLPrep = " + introLeftMove);
 
   var introTL = gsap.timeline({
     id: "intro",
