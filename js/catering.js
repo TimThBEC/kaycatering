@@ -31,7 +31,7 @@ var topicDesc = ".topic__desc-js";  // Topic text
 
 $(document).ready(function () {
 
-  console.log("catering.js loaded and ready - 9");
+  console.log("catering.js loaded and ready - 10");
 
   gsapPrep();
   gsapDevTools();
