@@ -124,7 +124,7 @@ function section1TLPrep() {
       start: "50% bottom",
       end: "bottom top",
       scrub: true,
-      markers: true
+      markers: false
     }
   });
 
