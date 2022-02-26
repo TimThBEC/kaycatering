@@ -141,10 +141,14 @@ function section1TLPrep() {
     "<"
   );
 
-  section1TL.from(
+  section1TL.fromTo(
     topicDesc,
     {
-      y: "5em",
+      yPercent: 0,
+      ease: "none"
+    },
+    {
+      yPercent: -150,
       ease: "none"
     },
     "<"
