@@ -48,6 +48,9 @@ function gsapPrep (){
     introLeftMove = "-50vw";
     introRightMove = "50vw";
 
+    console.log("ILM from gsapPrep = " + introLeftMove);
+
+
     // Add parallax to first topic section
 
     section1TLPrep();
@@ -75,6 +78,8 @@ if (devToolsOn) {
 function introTLPrep() {
   
   // Introduction Timeline - Barn Door Open
+
+console.log("ILM from introTLPrep = " + introLeftMove);
 
   var introTL = gsap.timeline({
     id: "intro",
