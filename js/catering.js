@@ -131,11 +131,11 @@ function section1TLPrep() {
   section1TL.fromTo(
     secondImg,
     {
-      y: "-10em",
+      y: "0em",
       ease: "none"
     },
     {
-      y: "0em",
+      y: "-10em",
       ease: "none"
     },
     "<"
