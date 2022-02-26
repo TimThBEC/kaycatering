@@ -6,6 +6,8 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
+var version = 11;
+
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
 
 var gsapDevToolsContainer = "#gsap-dev-tools-js"; // Container for GSAP Dev Tools
@@ -16,7 +18,7 @@ var introLeftMove = "";  // Amount to move left intro panel on scroll
 var introRightMove = "";  // Amount to move right intro panel on scroll
 
 var topicScroll = "#topic__scroll-js"; // Scrolling frame for intro and first topic
-var firstTopic = "#topic__scroll-js topic__first-js"; // Container with first topic elements
+var firstTopic = "#topic__scroll-js .topic__first-js"; // Container with first topic elements
 var firstSecondImg = "#first__second-img-js"; // First secondary topic images
 var firstTopicDesc = "#first__desc-js";  // First topic text
 
@@ -31,7 +33,7 @@ var topicDesc = ".topic__desc-js";  // Topic text
 
 $(document).ready(function () {
 
-  console.log("catering.js loaded and ready - 11");
+  console.log("catering.js loaded and ready: v"+version);
 
   gsapPrep();
   gsapDevTools();
