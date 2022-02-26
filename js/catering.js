@@ -133,7 +133,7 @@ function section1TLPrep() {
     ease: "none"
   });
  */
-  section1TL.to(
+  section1TL.from(
     secondImg,
     {
       yPercent: 90,
@@ -142,7 +142,7 @@ function section1TLPrep() {
     "<"
   );
 
-  section1TL.to(
+  section1TL.from(
     topicDesc,
     {
       yPercent: -90,
