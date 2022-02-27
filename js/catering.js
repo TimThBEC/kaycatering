@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 18.2
+var version = 18.3
 ;
 
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
@@ -224,7 +224,7 @@ function topicTLPrep() {
   });
 
   topic3TL.fromTo(
-    topic2SecondImg,
+    topic3SecondImg,
     {
       yPercent: 75,
       ease: "none"
@@ -236,7 +236,7 @@ function topicTLPrep() {
   );
 
   topic3TL.fromTo(
-    topic2Text,
+    topic3Text,
     {
       yPercent: 175,
       ease: "none"
