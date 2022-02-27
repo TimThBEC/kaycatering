@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 17
+var version = 18
 ;
 
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
@@ -27,6 +27,12 @@ var topic2 = "#topic2-js"; // Scrolling frame
 var topic2Container = "#topic2-js .topic__cntr-first-js"; // Container with topic elements
 var topic2SecondImg = "#topic2-js .topic__second-img-js"; // Secondary topic image
 var topic2Text = "#topic2-js .topic__desc-js";  // Topic text
+
+var topic3 = "#topic3-js"; // Scrolling frame
+var topic3Container = "#topic3-js .topic__cntr-first-js"; // Container with topic elements
+var topic3SecondImg = "#topic3-js .topic__second-img-js"; // Secondary topic image
+var topic3Text = "#topic3-js .topic__desc-js";  // Topic text
+
 
 
 /* 
@@ -203,6 +209,45 @@ function topicTLPrep() {
     },
     "<"
   );
+
+  // Topic 3 - Image Parallax
+
+  var topic2TL = gsap.timeline({
+    id: "Topic3",
+    scrollTrigger: {
+      trigger: topic3,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      markers: true
+    }
+  });
+
+  topic3TL.fromTo(
+    topic2SecondImg,
+    {
+      yPercent: 75,
+      ease: "none"
+    },
+    {
+      yPercent: -175,
+      ease: "none"
+    }
+  );
+
+  topic3TL.fromTo(
+    topic2Text,
+    {
+      yPercent: 175,
+      ease: "none"
+    },
+    {
+      yPercent: -25,
+      ease: "none"
+    },
+    "<"
+  );
+
 
 }
 
