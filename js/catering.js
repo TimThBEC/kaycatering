@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 16.2
+var version = 17
 ;
 
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
