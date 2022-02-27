@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 18
+var version = 18.1
 ;
 
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
@@ -212,7 +212,7 @@ function topicTLPrep() {
 
   // Topic 3 - Image Parallax
 
-  var topic2TL = gsap.timeline({
+  var topic3TL = gsap.timeline({
     id: "Topic3",
     scrollTrigger: {
       trigger: topic3,
