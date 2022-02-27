@@ -6,7 +6,8 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 16;
+var version = 16
+;
 
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
 
@@ -171,7 +172,7 @@ function topicTLPrep() {
     id: "Topic2",
     scrollTrigger: {
       trigger: topic2,
-      start: "50% bottom",
+      start: "top bottom",
       end: "bottom top",
       scrub: true,
       markers: true
