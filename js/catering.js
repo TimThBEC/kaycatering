@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 18.1
+var version = 18.2
 ;
 
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
@@ -181,7 +181,7 @@ function topicTLPrep() {
       start: "top bottom",
       end: "bottom top",
       scrub: true,
-      markers: true
+      markers: false
     }
   });
 
