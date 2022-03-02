@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 18.3
+var version = 19.0
 ;
 
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
@@ -17,6 +17,7 @@ var introLeft = ".intro__left-panel-js";  // Left intro panel
 var introRight = ".intro__right-panel-js"; // Right intro panel
 var introLeftMove = "";  // Amount to move left intro panel on scroll
 var introRightMove = "";  // Amount to move right intro panel on scroll
+var introLogo = ".intro__logo-js";
 
 var topic1 = "#topic1-js"; // Scrolling frame
 var topic1Container = "#topic1-js .topic__cntr-first-js"; // Container with topic elements
@@ -130,6 +131,17 @@ function introTLPrep() {
     "<"
   );
 
+  introTL.from(
+    introLogo,
+    {
+      scale: (1.5, 1.5),
+      ease: "none"
+    },
+    "<"
+  );
+
+
+
 }
 
 function topicTLPrep() {
@@ -219,7 +231,7 @@ function topicTLPrep() {
       start: "top bottom",
       end: "bottom top",
       scrub: true,
-      markers: true
+      markers: false
     }
   });
 
