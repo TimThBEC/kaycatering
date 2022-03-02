@@ -6,8 +6,10 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 19.2
-;
+var version = 19.3
+  ;
+
+var black = "#000000";
 
 var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
 
@@ -43,7 +45,7 @@ var topic3Text = "#topic3-js .topic__desc-js";  // Topic text
 
 $(document).ready(function () {
 
-  console.log("catering.js v"+version);
+  console.log("catering.js v" + version);
 
   gsapPrep();
   gsapDevTools();
@@ -111,10 +113,12 @@ function introTLPrep() {
     }
   });
 
-  introTL.to(introLeft, {
-    x: introLeftMove,
-    ease: "none"
-  });
+  introTL.to(
+    introLeft,
+    {
+      x: introLeftMove,
+      ease: "none"
+    });
 
   introTL.to(
     introRight,
@@ -135,6 +139,15 @@ function introTLPrep() {
   );
 
   introTL.from(
+    topic1,
+    {
+      backgroundColor: black,
+      ease: "none"
+    },
+    "<"
+  );
+
+  introTL.from(
     introLogo,
     {
       scale: (introLogoScale, introLogoScale),
@@ -142,6 +155,10 @@ function introTLPrep() {
     },
     "<"
   );
+
+
+
+
 
 
 
