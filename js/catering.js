@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 19.3
+var version = 19.4
   ;
 
 var black = "#000000";
@@ -109,7 +109,7 @@ function introTLPrep() {
       start: "top top",
       end: "50% top",
       scrub: true,
-      markers: false
+      markers: true
     }
   });
 
