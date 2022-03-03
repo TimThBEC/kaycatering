@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 19.4
+var version = 19.5
   ;
 
 var black = "#000000";
@@ -107,7 +107,7 @@ function introTLPrep() {
     scrollTrigger: {
       trigger: topic1,
       start: "top top",
-      end: "50% top",
+      end: "50% 25%",
       scrub: true,
       markers: true
     }
