@@ -109,7 +109,7 @@ function introTLPrep() {
       start: "top top",
       end: "50% 25%",
       scrub: true,
-      markers: true
+      markers: false
     }
   });
 
