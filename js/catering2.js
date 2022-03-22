@@ -1,0 +1,261 @@
+// Kay Catering catering page js - version 2
+
+/* 
+    ---------- Init Stuff ----------
+*/
+
+gsap.registerPlugin(ScrollTrigger);
+
+var version = 1.6;
+
+var black = "#000000";
+
+var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
+
+var gsapDevToolsContainer = "#gsap-dev-tools-js"; // Container for GSAP Dev Tools
+
+// Connecting vars
+
+var introLeft = ".intro__left-panel-js"; // Left intro panel
+var introRight = ".intro__right-panel-js"; // Right intro panel
+var introLogo = ".intro__logo-js";
+
+var topicOneWrap = ".topic1__wrap-js";
+
+//var topic1 = "#topic1-js"; // Scrolling frame
+var topic1MainImg = "#temp__main-img-js";
+var topic1Container = "#topic1-js .topic__cntr-first-js"; // Container with topic elements
+var topic1SecondImg = "#topic1-js .topic__second-img-js"; // Secondary topic image
+var topic1Text = "#topic1-js .topic__desc-js"; // Topic text
+
+var topic2 = "#topic2-js"; // Scrolling frame
+var topic2Container = "#topic2-js .topic__cntr-first-js"; // Container with topic elements
+var topic2SecondImg = "#topic2-js .topic__second-img-js"; // Secondary topic image
+var topic2Text = "#topic2-js .topic__desc-js"; // Topic text
+
+var topic3 = "#topic3-js"; // Scrolling frame
+var topic3Container = "#topic3-js .topic__cntr-first-js"; // Container with topic elements
+var topic3SecondImg = "#topic3-js .topic__second-img-js"; // Secondary topic image
+var topic3Text = "#topic3-js .topic__desc-js"; // Topic text
+
+// Breakpoint vars
+
+var desktop = "(min-width: 992px)";
+var nonDesktop = "(max-width: 991px)";
+var tablet = "(min-width: 768px) and (max-width: 991px)";
+var mobileLandscape = "(min-width: 479px) and (max-width: 767px)";
+var mobilePortrait = "(max-width: 478px)";
+
+var introLeftMove = ""; // Amount to move left intro panel on scroll
+var introRightMove = ""; // Amount to move right intro panel on scroll
+
+var introLogoScale = 1;
+
+var mainImgWidth = 0;
+var mainImgHeight = 0;
+
+/* 
+    ---------- Doc Ready ----------
+*/
+
+$(document).ready(function () {
+  console.log("catering.js v" + version);
+
+  breakpoints();
+  introTL();
+  gsapDevTools();
+  //topicTLPrep();
+}); // End doc ready
+
+/* 
+    ---------- Function definitions ----------
+*/
+
+function breakpoints() {
+  // Desktop values
+
+  introLeftMove = "-50vw";
+  introRightMove = "50vw";
+  introLogoScale = 3;
+
+  mainImgWidth = "60em";
+  mainImgHeight = "33.75em";
+
+  // Values for all non-desktop devices
+  if (window.matchMedia(nonDesktop).matches) {
+    console.log("Non-Desktop");
+
+    introLeftMove = "-100vw";
+    introRightMove = "100vw";
+    introLogoScale = 1.5;
+  }
+
+  if (window.matchMedia(tablet).matches) {
+    console.log("Tablet");
+    mainImgWidth = "40em";
+    mainImgHeight = "22.5em";
+  }
+
+  if (window.matchMedia(mobileLandscape).matches) {
+    console.log("Mobile Landscape");
+    mainImgWidth = "30em";
+    mainImgHeight = "16.875em";
+  }
+
+  if (window.matchMedia(mobilePortrait).matches) {
+    console.log("Mobile Portrait");
+    mainImgWidth = "25em";
+    mainImgHeight = "14.0625em";
+  }
+}
+
+function introTL() {
+  // Introduction Timeline - Barn Door Open
+
+  var introTL = gsap.timeline({
+    id: "intro",
+    scrollTrigger: {
+      trigger: topicOneWrap,
+      start: "top top",
+      end: "33% top",
+      scrub: true,
+      markers: true
+    }
+  });
+
+  introTL
+    .to(introLeft, { x: introLeftMove, ease: "none" })
+    .to(introRight, { x: introRightMove, ease: "none" }, "<")
+    .from(
+      introLogo,
+      { scale: (introLogoScale, introLogoScale), ease: "none" },
+      "<"
+    )
+    .to(topic1MainImg, { width: mainImgWidth, height: mainImgHeight });
+}
+
+/* function topicTLPrep() {
+  // Topic 1 - Image Parallax
+
+  var topic1TL = gsap.timeline({
+    id: "Topic1",
+    scrollTrigger: {
+      trigger: topic1,
+      start: "50% bottom",
+      end: "bottom top",
+      scrub: true,
+      markers: false
+    }
+  });
+
+  topic1TL.fromTo(
+    topic1SecondImg,
+    {
+      yPercent: 75,
+      ease: "none"
+    },
+    {
+      yPercent: -175,
+      ease: "none"
+    }
+  );
+
+  topic1TL.fromTo(
+    topic1Text,
+    {
+      yPercent: 175,
+      ease: "none"
+    },
+    {
+      yPercent: -25,
+      ease: "none"
+    },
+    "<"
+  );
+
+  // Topic 2 - Image Parallax
+
+  var topic2TL = gsap.timeline({
+    id: "Topic2",
+    scrollTrigger: {
+      trigger: topic2,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      markers: false
+    }
+  });
+
+  topic2TL.fromTo(
+    topic2SecondImg,
+    {
+      yPercent: 75,
+      ease: "none"
+    },
+    {
+      yPercent: -175,
+      ease: "none"
+    }
+  );
+
+  topic2TL.fromTo(
+    topic2Text,
+    {
+      yPercent: 175,
+      ease: "none"
+    },
+    {
+      yPercent: -25,
+      ease: "none"
+    },
+    "<"
+  );
+
+  // Topic 3 - Image Parallax
+
+  var topic3TL = gsap.timeline({
+    id: "Topic3",
+    scrollTrigger: {
+      trigger: topic3,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      markers: false
+    }
+  });
+
+  topic3TL.fromTo(
+    topic3SecondImg,
+    {
+      yPercent: 75,
+      ease: "none"
+    },
+    {
+      yPercent: -175,
+      ease: "none"
+    }
+  );
+
+  topic3TL.fromTo(
+    topic3Text,
+    {
+      yPercent: 175,
+      ease: "none"
+    },
+    {
+      yPercent: -25,
+      ease: "none"
+    },
+    "<"
+  );
+}
+ */
+
+function gsapDevTools() {
+  // Set up GSAP dev tools
+
+  if (devToolsOn) {
+    gsap.set(gsapDevToolsContainer, { display: "block" });
+    GSDevTools.create({ container: gsapDevToolsContainer });
+  }
+}

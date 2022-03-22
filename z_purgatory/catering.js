@@ -6,8 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 19.5
-  ;
+var version = 1.1;
 
 var black = "#000000";
 
@@ -15,52 +14,64 @@ var devToolsOn = false; // Set to true to turn on GSAP Dev Tools.
 
 var gsapDevToolsContainer = "#gsap-dev-tools-js"; // Container for GSAP Dev Tools
 
-var introLeft = ".intro__left-panel-js";  // Left intro panel
+var desktop = "(min-width: 992px)";
+
+var introLeft = ".intro__left-panel-js"; // Left intro panel
 var introRight = ".intro__right-panel-js"; // Right intro panel
-var introLeftMove = "";  // Amount to move left intro panel on scroll
-var introRightMove = "";  // Amount to move right intro panel on scroll
+var introLeftMove = ""; // Amount to move left intro panel on scroll
+var introRightMove = ""; // Amount to move right intro panel on scroll
 var introLogo = ".intro__logo-js";
 var introLogoScale = 1;
 
-var topic1 = "#topic1-js"; // Scrolling frame
+var topicOneWrap = ".topic-one__wrap-js";
+
+//var topic1 = "#topic1-js"; // Scrolling frame
+var topic1MainImg = "#temp__main-img-js";
 var topic1Container = "#topic1-js .topic__cntr-first-js"; // Container with topic elements
 var topic1SecondImg = "#topic1-js .topic__second-img-js"; // Secondary topic image
-var topic1Text = "#topic1-js .topic__desc-js";  // Topic text
+var topic1Text = "#topic1-js .topic__desc-js"; // Topic text
 
 var topic2 = "#topic2-js"; // Scrolling frame
 var topic2Container = "#topic2-js .topic__cntr-first-js"; // Container with topic elements
 var topic2SecondImg = "#topic2-js .topic__second-img-js"; // Secondary topic image
-var topic2Text = "#topic2-js .topic__desc-js";  // Topic text
+var topic2Text = "#topic2-js .topic__desc-js"; // Topic text
 
 var topic3 = "#topic3-js"; // Scrolling frame
 var topic3Container = "#topic3-js .topic__cntr-first-js"; // Container with topic elements
 var topic3SecondImg = "#topic3-js .topic__second-img-js"; // Secondary topic image
-var topic3Text = "#topic3-js .topic__desc-js";  // Topic text
-
-
+var topic3Text = "#topic3-js .topic__desc-js"; // Topic text
 
 /* 
     ---------- Doc Ready ----------
 */
 
 $(document).ready(function () {
-
   console.log("catering.js v" + version);
 
-  gsapPrep();
-  gsapDevTools();
+  introTL();
 
+  //topicTLPrep();
+
+  gsapDevTools();
 }); // End doc ready
 
 /* 
     ---------- Function definitions ----------
 */
 
-function gsapPrep() {
+function gsapDevTools() {
+  // Set up GSAP dev tools
 
-  //Breakpoints
+  if (devToolsOn) {
+    gsap.set(gsapDevToolsContainer, { display: "block" });
+    GSDevTools.create({ container: gsapDevToolsContainer });
+  }
+}
 
-  if (window.matchMedia("(min-width: 992px)").matches) {
+function introTL() {
+  // Introduction Timeline - Barn Door Open
+
+  if (window.matchMedia(desktop).matches) {
     console.log("Desktop");
 
     // Set movement amount for barn doors in intro
@@ -70,9 +81,6 @@ function gsapPrep() {
     introLogoScale = 3;
 
     // Add parallax to first topic section
-
-    topicTLPrep();
-
   } else {
     console.log("Mobile");
     introLeftMove = "-100vw";
@@ -80,92 +88,29 @@ function gsapPrep() {
     introLogoScale = 1.5;
   }
 
-
-  // Timelines that don't depend on breakpoints
-
-  introTLPrep();
-
-}
-
-function gsapDevTools() {
-
-  // Set up GSAP dev tools
-
-  if (devToolsOn) {
-    gsap.set(gsapDevToolsContainer, { display: "block" });
-    GSDevTools.create({ container: gsapDevToolsContainer });
-  }
-
-}
-
-function introTLPrep() {
-
-  // Introduction Timeline - Barn Door Open
-
   var introTL = gsap.timeline({
     id: "intro",
     scrollTrigger: {
-      trigger: topic1,
+      trigger: topicOneWrap,
       start: "top top",
-      end: "50% 25%",
+      end: "33% top",
       scrub: true,
-      markers: false
+      markers: true
     }
   });
 
-  introTL.to(
-    introLeft,
-    {
-      x: introLeftMove,
-      ease: "none"
-    });
-
-  introTL.to(
-    introRight,
-    {
-      x: introRightMove,
-      ease: "none"
-    },
-    "<"
-  );
-
-  introTL.from(
-    topic1Container,
-    {
-      opacity: 0,
-      ease: "none"
-    },
-    "<"
-  );
-
-  introTL.from(
-    topic1,
-    {
-      backgroundColor: black,
-      ease: "none"
-    },
-    "<"
-  );
-
-  introTL.from(
-    introLogo,
-    {
-      scale: (introLogoScale, introLogoScale),
-      ease: "none"
-    },
-    "<"
-  );
-
-
-
-
-
-
-
+  introTL
+    .to(introLeft, { x: introLeftMove, ease: "none" })
+    .to(introRight, { x: introRightMove, ease: "none" }, "<")
+    .from(
+      introLogo,
+      { scale: (introLogoScale, introLogoScale), ease: "none" },
+      "<"
+    )
+    .to(topic1MainImg, { width: "15em", height: "8.5em" });
 }
 
-function topicTLPrep() {
-
+/* function topicTLPrep() {
   // Topic 1 - Image Parallax
 
   var topic1TL = gsap.timeline({
@@ -279,7 +224,5 @@ function topicTLPrep() {
     },
     "<"
   );
-
-
 }
-
+ */
