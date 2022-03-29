@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 1.6;
+var version = 1.7;
 
 var black = "#000000";
 
@@ -16,6 +16,7 @@ var gsapDevToolsContainer = "#gsap-dev-tools-js"; // Container for GSAP Dev Tool
 
 // Connecting vars
 
+var introDiv = "#intro-js";
 var introLeft = ".intro__left-panel-js"; // Left intro panel
 var introRight = ".intro__right-panel-js"; // Right intro panel
 var introLogo = ".intro__logo-js";
@@ -23,7 +24,16 @@ var introLogo = ".intro__logo-js";
 var topicOneWrap = ".topic1__wrap-js";
 
 //var topic1 = "#topic1-js"; // Scrolling frame
-var topic1MainImg = "#temp__main-img-js";
+var topic1Title = "#t1__title-js";
+var topic1MainImg = "#t1__main-img-js";
+var topic1Img2 = "#t1__img2-js";
+var topic1Img3 = "#t1__img3-js";
+var topic1Desc = "#t1__desc-js";
+var topic1CTA = "#t1__cta-js";
+var topic1Other = "#t1__img2-js, #t1__img3-js, #t1__desc-js, #t1__cta-js";
+
+/* For Deletion? 
+
 var topic1Container = "#topic1-js .topic__cntr-first-js"; // Container with topic elements
 var topic1SecondImg = "#topic1-js .topic__second-img-js"; // Secondary topic image
 var topic1Text = "#topic1-js .topic__desc-js"; // Topic text
@@ -37,6 +47,8 @@ var topic3 = "#topic3-js"; // Scrolling frame
 var topic3Container = "#topic3-js .topic__cntr-first-js"; // Container with topic elements
 var topic3SecondImg = "#topic3-js .topic__second-img-js"; // Secondary topic image
 var topic3Text = "#topic3-js .topic__desc-js"; // Topic text
+
+*/
 
 // Breakpoint vars
 
@@ -53,6 +65,7 @@ var introLogoScale = 1;
 
 var mainImgWidth = 0;
 var mainImgHeight = 0;
+var mainImgMove = 0;
 
 /* 
     ---------- Doc Ready ----------
@@ -106,6 +119,7 @@ function breakpoints() {
     console.log("Mobile Portrait");
     mainImgWidth = "25em";
     mainImgHeight = "14.0625em";
+    mainImgMove = -100;
   }
 }
 
@@ -117,8 +131,8 @@ function introTL() {
     scrollTrigger: {
       trigger: topicOneWrap,
       start: "top top",
-      end: "33% top",
-      scrub: true,
+      end: "90% bottom",
+      scrub: 2,
       markers: true
     }
   });
@@ -126,12 +140,12 @@ function introTL() {
   introTL
     .to(introLeft, { x: introLeftMove, ease: "none" })
     .to(introRight, { x: introRightMove, ease: "none" }, "<")
-    .from(
-      introLogo,
-      { scale: (introLogoScale, introLogoScale), ease: "none" },
-      "<"
-    )
-    .to(topic1MainImg, { width: mainImgWidth, height: mainImgHeight });
+    .from(introLogo, { scale: (introLogoScale, introLogoScale) }, "<")
+    .to(topic1MainImg, { width: mainImgWidth, height: mainImgHeight }, ">+0.5")
+    .to(topic1MainImg, { yPercent: mainImgMove }, "<")
+    .from(topic1Title, { scale: (3, 3), opacity: 0 }, "<+0.25")
+    .from(topic1Other, { scale: (0, 0), opacity: 0 }, "<")
+    .set(introDiv, { pointerEvents: "none" }, "<");
 }
 
 /* function topicTLPrep() {
