@@ -6,7 +6,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-var version = 1.7;
+var version = 2.0;
 
 var black = "#000000";
 
