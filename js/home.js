@@ -4,29 +4,28 @@
     ---------- Init Stuff ----------
 */
 
+let version = 1.0;
 
 /* 
     ---------- Doc Ready ----------
 */
 
 $(document).ready(function () {
+  console.log("home.js version rc" + version);
 
-    console.log("home.js loaded and ready");
+  constructSplide();
 
-    constructSplide();
+  // Event Handlers
 
-    // Event Handlers
+  $(".next-splide").click(function () {
+    $(".splide__arrow.splide__arrow--next").click();
+    console.log("next clicked");
+  });
 
-    $('.next-splide').click(function () {
-        $('.splide__arrow.splide__arrow--next').click();
-        console.log("next clicked");
-    });
-
-    $('.prev-splide').click(function () {
-        $('.splide__arrow.splide__arrow--prev').click();
-        console.log("prev clicked");
-    });
-
+  $(".prev-splide").click(function () {
+    $(".splide__arrow.splide__arrow--prev").click();
+    console.log("prev clicked");
+  });
 }); // End doc ready
 
 /* 
@@ -34,36 +33,34 @@ $(document).ready(function () {
 */
 
 function constructSplide() {
+  // Construct first slider
 
-    // Construct first slider
+  new Splide("#slider1", {
+    perPage: 3,
+    perMove: 3,
+    speed: 1500,
+    // autoplay: true,
+    // interval: 4000,
+    // pauseOnHover: false,
+    type: "loop",
+    focus: "center",
+    breakpoints: {
+      767: {
+        perPage: 1
+      }
+    }
+  }).mount();
 
-    new Splide('#slider1', {
-        perPage: 3,
-        perMove: 3,
-        speed: 1500,
-        // autoplay: true,
-        // interval: 4000,
-        // pauseOnHover: false,
-        type: 'loop',
-        focus: 'center',
-        breakpoints: {
-            767: {
-                perPage: 1,
-            }
-        }
-    }).mount();
+  // Construct testimonial slider
 
-    // Construct testimonial slider
-
-    new Splide('#slider2', {
-        perPage: 1,
-        perMove: 1,
-        speed: 1200,
-        // autoplay: true,
-        // interval: 6000,
-        // pauseOnHover: false,
-        type: 'loop',
-        focus: 'center'
-    }).mount();
-
+  new Splide("#slider2", {
+    perPage: 1,
+    perMove: 1,
+    speed: 1200,
+    // autoplay: true,
+    // interval: 6000,
+    // pauseOnHover: false,
+    type: "loop",
+    focus: "center"
+  }).mount();
 }
