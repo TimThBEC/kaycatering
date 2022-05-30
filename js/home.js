@@ -4,7 +4,17 @@
     ---------- Init Stuff ----------
 */
 
-let version = 1.0;
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+let version = 1.1;
+
+// create the smooth scroller FIRST!
+
+const smoother = ScrollSmoother.create({
+  wrapper: "#gsap-scroll-smoother-wrapper",
+  content: "#gsap-scroll-smoother-content",
+  smooth: 3
+});
 
 /* 
     ---------- Doc Ready ----------
@@ -13,7 +23,7 @@ let version = 1.0;
 $(document).ready(function () {
   console.log("home.js version rc" + version);
 
-  constructSplide();
+  //constructSplide();
 
   // Event Handlers
 
