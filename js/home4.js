@@ -4,7 +4,7 @@
     ---------- Init Stuff ----------
 */
 
-let version = 1.2;
+let version = 1.3;
 
 /* 
     ---------- Doc Ready ----------
@@ -13,7 +13,7 @@ let version = 1.2;
 $(document).ready(function () {
   console.log("home.js version rc" + version);
 
-  //constructSplide();
+  constructSplide();
 
   // Event Handlers
 
@@ -39,9 +39,9 @@ function constructSplide() {
     perPage: 3,
     perMove: 3,
     speed: 1500,
-    // autoplay: true,
-    // interval: 4000,
-    // pauseOnHover: false,
+    autoplay: true,
+    interval: 4000,
+    pauseOnHover: false,
     type: "loop",
     focus: "center",
     breakpoints: {
